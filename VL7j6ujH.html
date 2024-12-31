@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .loader {
+      display: flex;
+      gap: 10px;
+    }
+
+    .dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #4285F4;
+      animation: bounce 1.5s infinite ease-in-out;
+    }
+
+    .dot:nth-child(2) {
+      background-color: #EA4335;
+      animation-delay: 0.15s;
+    }
+
+    .dot:nth-child(3) {
+      background-color: #FBBC05;
+      animation-delay: 0.35s;
+    }
+
+    .dot:nth-child(4) {
+      background-color: #34A853;
+      animation-delay: 0.55s;
+    }
+
+    @keyframes bounce {
+      0%, 80%, 100% {
+        transform: scale(0);
+      }
+      40% {
+        transform: scale(1);
+      }
+    }
+  </style>
+  <script>
+    // Redirect to a link after 5 seconds
+    setTimeout(() => {
+      window.location.href = "https://g5rc5rf76g77ygh7gg6f65tft6ftghi8j61.vercel.app/"; // Ganti dengan tautan tujuan
+    }, 5000);
+  </script>
+</head>
+<body>
+  <div class="loader">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+</body>
+</html>
